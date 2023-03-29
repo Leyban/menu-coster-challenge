@@ -9,8 +9,5 @@
   },
   "scripts": {
     "test": "ts-node main.ts"
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
   }
 }

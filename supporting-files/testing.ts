@@ -1,5 +1,3 @@
-import { isEqual } from 'lodash';
-
 export const ExpectedRecipeSummary: any = {
     "Creme Brulee": {
         cheapestCost: 2.2291416666666666,
@@ -64,16 +62,15 @@ export function RunTest(inputRecipeSummary: any) {
     for (const recipeName of Object.keys(ExpectedRecipeSummary)) {
         try {
             const expectedObj = ExpectedRecipeSummary[recipeName];
-            const recievedObj = inputRecipeSummary[recipeName];
+            const receivedObj = inputRecipeSummary[recipeName];
 
-    //   Never do this to compare objects because order will matter
-    //   const expected = JSON.stringify(expectedObj, null, 2);
-    //   const recieved = JSON.stringify(recievedObj, null, 2);
+      const expected = JSON.stringify(expectedObj, null, 2);
+      const received = JSON.stringify(receivedObj, null, 2);
 
     //   Use lodash instead
       console.log(
         `CHECKING RECIPE "${recipeName}" --- ${
-          !isEqual(expectedObj, recievedObj) ? 'IN' : ''
+            expected !== received ? 'IN' : ''
         }CORRECT ANSWER`
       );
     } catch (error) {
